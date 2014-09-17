@@ -1,10 +1,10 @@
 $(function() {
-  var messages = $('.messages');
+  var messages     = $('.messages');
   var inputMessage = $('.message-input');
 
   var username;
-  var connected = false;
-  var typing = false;
+  var typing       = false;
+  var connected    = false;
   var currentInput = $('.username-input').focus();
 
   var socket = io();
@@ -15,8 +15,8 @@ $(function() {
     if (username) {
       hideUserForm(function() {
         showMessageForm();
-        currentInput = inputMessage.focus();
         socket.emit('add user', username);
+        currentInput = $('.message-input').focus();
       });
     }
   }
