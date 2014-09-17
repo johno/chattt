@@ -24,7 +24,7 @@ Start the server:
 $ node .
 ```
 
-Now, the server will be listening on port 3333.
+Now, the server will be listening on port 3000.
 
 ## Contributing
 
