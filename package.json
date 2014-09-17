@@ -27,11 +27,18 @@
     "debug": "^2.0.0",
     "engine.io": "^1.4.0",
     "express": "^4.9.1",
+    "gulp": "^3.8.8",
     "handlebars": "^2.0.0",
     "has-binary-data": "^0.1.5",
     "socket.io": "^1.1.0",
     "socket.io-adapter": "^0.3.0",
     "socket.io-client": "^1.1.0",
     "socket.io-parser": "^2.2.2"
+  },
+  "devDependencies": {
+    "gulp-concat": "^2.4.1",
+    "gulp-jshint": "^1.8.4",
+    "gulp-rename": "^1.2.0",
+    "gulp-uglify": "^1.0.1"
   }
 }
