@@ -26,4 +26,9 @@ gulp.task('js', function() {
     .pipe(gulp.dest('public/js'))
 })
 
-gulp.task('default', ['js', 'scss']);
+gulp.task('watch', function() {
+  gulp.watch('public/scss/*.scss', ['scss', 'csslint']);
+  gulp.watch('public/js/*.js', ['jshint', 'js']);
+});
+
+gulp.task('default', ['js', 'scss', 'watch']);
