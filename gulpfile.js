@@ -28,7 +28,7 @@ gulp.task('js', function() {
 
 gulp.task('watch', function() {
   gulp.watch('public/scss/*.scss', ['scss', 'csslint']);
-  gulp.watch('public/js/*.js', ['jshint', 'js']);
+  gulp.watch('public/js/*.js', ['js']);
 });
 
 gulp.task('default', ['js', 'scss', 'watch']);

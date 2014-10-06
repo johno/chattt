@@ -19,3 +19,19 @@ function hideUserForm(callback) {
 (function() {
   $('body').append(userForm);
 })();
+
+// https://gist.github.com/ryndel/3886867
+Handlebars.registerHelper('linkify', function (text) {
+    text = text.replace(/(http|ftp|https):\/\/([\w-]+(.[\w-]+)+)([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])?/gi, function (s) {
+        return '<a href="' + s + '">' + s + '</a>';
+    });
+ 
+    text = text.replace(/(^|)@(\w+)/gi, function (s) {
+        return '<a href="http://twitter.com/' + s + '">' + s + '</a>';
+    });
+ 
+    text = text.replace(/(^|)#(\w+)/gi, function (s) {
+        return '<a href="http://search.twitter.com/search?q=' + s.replace(/#/,'%23') + '">' + s + '</a>';
+     });
+    return new Handlebars.SafeString(text);
+});
