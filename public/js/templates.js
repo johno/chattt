@@ -21,14 +21,15 @@ function hideUserForm(callback) {
 })();
 
 // https://gist.github.com/ryndel/3886867
+// Note: This is vulnerable to XSS if there's unescaped HTML.
 Handlebars.registerHelper('linkify', function (text) {
-    return new Handlebars.SafeString(
-      text.replace(/(http|ftp|https):\/\/([\w-]+(.[\w-]+)+)([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])?/gi, function (s) {
-        return '<a href="' + s + '">' + s + '</a>';
-      }).replace(/(^|)@(\w+)/gi, function (s) {
-        return '<a href="http://twitter.com/' + s + '">' + s + '</a>';
-      }).replace(/(^|)#(\w+)/gi, function (s) {
-        return '<a href="http://search.twitter.com/search?q=' + s.replace(/#/,'%23') + '">' + s + '</a>';
-      });
-    );
+  text = text.replace(/(http|ftp|https):\/\/([\w-]+(.[\w-]+)+)([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])?/gi, function (s) {
+    return '<a href="' + s + '">' + s + '</a>';
+  }).replace(/(^|)@(\w+)/gi, function (s) {
+    return '<a href="http://twitter.com/' + s + '">' + s + '</a>';
+  }).replace(/(^|)#(\w+)/gi, function (s) {
+    return '<a href="http://search.twitter.com/search?q=' + s.replace(/#/,'%23') + '">' + s + '</a>';
+  });
+
+  return new Handlebars.SafeString(text);
 });
