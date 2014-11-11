@@ -9,13 +9,13 @@ Adapted from <https://github.com/Automattic/socket.io/tree/master/examples/chat>
 Clone the repository:
 
 ```
-$ git clone https://github.com/johnotander/chattt.git
+$ git clone https://github.com/johnotander/chattt.git && cd chattt
 ```
 
 Install the npm packages:
 
 ```
-$ cd chattt && npm_install
+$ npm i
 ```
 
 Start the server:
